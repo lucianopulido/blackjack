@@ -15,7 +15,28 @@ const crearDeck = () => {
         }
     }
     deck = _.shuffle(deck)
+    console.log(deck);
     return deck;
 }
 
 crearDeck();
+
+const pedirCarta = () => {
+    if (deck.length == 0) {
+        throw 'No hay cartas en el deck';
+    }
+    const card = deck.pop();
+    console.log(deck);
+    console.log(card);
+    return card;
+}
+
+card = pedirCarta();
+
+const valorCarta = (carta) => {
+    const valor = carta.substring(0, carta.length - 1);
+    return (isNaN(valor)) ? (valor === 'A') ? 11 : 10 : valor * 1;
+}
+
+valor = valorCarta(card);
+console.log("valor: ", valor);
